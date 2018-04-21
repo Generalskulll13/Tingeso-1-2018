@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import logo from './cart.png'
-import Modal from './Modal/Modal'
+import ModalIngreso from './Modal/ModalIngreso'
 import Axios from 'axios'
 
 import './App.css'
@@ -46,8 +46,8 @@ class App extends Component {
         <header className="App-header">
           <img className="logo-cart" src={logo} alt="logo" />
           <h1 className="App-title">Bienvenido al carrito de compras </h1>
-          <button onClick={this.toggleModal}> Nuevo ingreso </button>
-          <Modal className="Modal"  show={this.state.isOpen} onClose={this.toggleModal} > </Modal>
+          <button className="button-crear" onClick={this.toggleModal}> Nuevo ingreso </button>
+          <ModalIngreso className="Modal"  show={this.state.isOpen} onClose={this.toggleModal} > </ModalIngreso>
         </header>
         <div className="App-intro">
           <FilmList films = {this.state.films} color = {this.state.color} />

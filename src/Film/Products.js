@@ -1,33 +1,42 @@
 import React, { Component } from 'react'
 import './Products.css'
-import logo from './../puppy.jpg'
+import ModalEditar from '../Modal/ModalEditar'
 import Axios from 'axios';
 
 class Products extends Component {
 
 
+  state = {
+    isOpen: false
+  };
 
-    handleCompra = () => {
+  toggleModal = () => {
 
-        alert("Boton comprar");
-    };
+    this.setState({
 
-    handleInfo = () => {
-        alert("Boton info");
-    };
+      isOpen: !this.state.isOpen
 
-    handleBorrar = event => {
-      event.preventDefault();
-      console.log('http://localhost:8081/mingeso-backend/producto/remove/'+this.props.id);
-      Axios.delete('http://localhost:8081/mingeso-backend/producto/remove/'+this.props.id)
-      .then(res => {
-        console.log(res);
-        console.log(res.data);
-        
-      })
-      document.getElementById(this.props.id+4187).style.display = "none";
-      console.log(this.props.id+4187);
-      this.forceUpdate();
+    });
+  }
+
+
+  handleCompra = () => {
+    alert("Boton comprar");
+  };
+
+
+  handleBorrar = event => {
+    event.preventDefault();
+    console.log('http://localhost:8081/mingeso-backend/producto/remove/'+this.props.id);
+    Axios.delete('http://localhost:8081/mingeso-backend/producto/remove/'+this.props.id)
+    .then(res => {
+      console.log(res);
+      console.log(res.data);
+      
+    })
+    document.getElementById(this.props.id+4187).style.display = "none";
+    console.log(this.props.id+4187);
+    this.forceUpdate();
   }
 
 
@@ -58,10 +67,11 @@ class Products extends Component {
 
         </div>
 
-
-          <button className="button-comprar" onClick={this.handleCompra}> Comprar </button>
-          <button className="button-verinfo" onClick={this.handleInfo}> Ver info </button>
-          <button className="button-verinfo" onClick={this.handleBorrar}> Borrar </button>
+          <ModalEditar idValue={this.props.id} codigoValue={this.props.codigo} 
+          nombreValue={this.props.nombre} precioValue={this.props.precio} 
+          className="ModalEdit" show={this.state.isOpen} onClose={this.toggleModal} > </ModalEditar>
+          <button className="button-editar" onClick={this.toggleModal}> Editar info </button>
+          <button className="button-borrar" onClick={this.handleBorrar}> Borrar </button>
 
       </div>
     )

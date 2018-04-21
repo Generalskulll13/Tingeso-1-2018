@@ -26,15 +26,41 @@
 
 .App-title {
     font-size: 1.5em;
+    text-shadow: 3px 2px #ffffff80;
 }
 
 .App-intro {
     font-size: large;
     margin-top: 5px;
+    z-index:-1;
+    position: relative;
 }
 
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+.button-crear {
+    background-color: #C2973F; /* Tostado */
+    border: 2px solid #926F27;
+    color: white;
+    padding: 8px 4%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 4px;
+    float: flex;
+}
+
+.button-crear {
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+
+.button-crear:hover {
+    background-color: #926F27; /* Tostado */
+    color: white;
 }

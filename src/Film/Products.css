@@ -38,51 +38,50 @@
     background-color: #599ea1;
 }
 
-.button-comprar {
-    background-color: #4CAF50; /* Green */
+.button-borrar {
+    background-color: #E05F5C; /* Green */
     border: none;
     color: white;
-    padding: 15px 10%;
+    width: 50%;
+    height: 40px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
     border-radius: 4px;
-    float: flex;
-
+    float: left;
 }
 
-.button-comprar {
+.button-borrar {
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
 }
 
-.button-comprar:hover {
-    background-color: #006b1c; /* Green */
+.button-borrar:hover {
+    background-color: #C03834; /* Green */
     color: white;
 }
 
-.button-verinfo {
+.button-editar {
     background-color: #008CBA; /* Blue */
     border: none;
     color: white;
-    padding: 15px 10%;
+    width: 50%;
+    height: 40px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
     border-radius: 4px;
-    float: flex;
+    float: left;
 
 }
 
 
-.button-verinfo {
+.button-editar {
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
 }
 
-.button-verinfo:hover {
+.button-editar:hover {
     background-color: #002d71; /* Green */
     color: white;
 }
@@ -140,3 +139,4 @@ div.desc {
     display: table;
     clear: both;
 }
+

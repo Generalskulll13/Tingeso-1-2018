@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Axios from 'axios'
 
 
-class Modal extends Component {
+class ModalEditar extends Component {
 
 
     
@@ -12,9 +12,10 @@ class Modal extends Component {
         super(props);
       
         this.state = {
-        codigoValue: '',
-        nombreValue: '',
-        precioValue: '',
+          idValue: props.idValue,
+          codigoValue: props.codigoValue,
+          nombreValue: props.nombreValue,
+          precioValue: props.precioValue,
     };
 
     this.handleCodigoValue = this.handleCodigoValue.bind(this);
@@ -25,7 +26,6 @@ class Modal extends Component {
     handleCodigoValue(event){
           this.setState({codigoValue: event.target.value});
     }
-
     handleNombreValue(event){
             this.setState({nombreValue: event.target.value});
     }
@@ -37,6 +37,7 @@ class Modal extends Component {
         console.log(event)
 
             Axios.post('http://localhost:8081/mingeso-backend/producto',{
+                id: this.state.idValue,
                 codigo:	this.state.codigoValue,
                 nombre:	this.state.nombreValue,
                 precio:	this.state.precioValue,
@@ -47,6 +48,10 @@ class Modal extends Component {
               }).catch(function (error) {
                 console.log(error);
               }).then(
+                this.setState({codigoValue: ''}),
+                this.setState({nombreValue: ''}),
+                this.setState({precioValue: ''})
+              ).then(
                 this.props.onClose
               );
     }
@@ -68,8 +73,10 @@ class Modal extends Component {
       padding: 50
     };
 
-    // The modal "window"
-    const modalStyle = {
+    // The modalEditar "window"
+    const modalEditarStyle = {
+      position:'absolute',
+      float: 'left',
       backgroundColor: '#fff',
       borderRadius: 5,
       maxWidth: 500,
@@ -80,7 +87,7 @@ class Modal extends Component {
 
     return (
       <div className="backdrop" style={backdropStyle}>
-        <div className="modal" style={modalStyle}>
+        <div className="modalEditar" style={modalEditarStyle}>
           {this.props.children}
           <div> Ingrese datos </div>
             <input type="text" value={this.state.codigoValue} placeholder="Código producto" onChange={this.handleCodigoValue}>
@@ -100,7 +107,7 @@ class Modal extends Component {
   }
 }
 
-Modal.propTypes = {
+ModalEditar.propTypes = {
     onClose: PropTypes.func.isRequired,
     show: PropTypes.bool,
     children: PropTypes.node
@@ -108,4 +115,4 @@ Modal.propTypes = {
 
 
 
-export default Modal;
+export default ModalEditar;
