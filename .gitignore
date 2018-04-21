@@ -2,3 +2,5 @@
 mingeso3/bin/main/application\.properties
 
 \.idea/Tingeso-1-2018\.iml
+
+mingeso3/src/main/resources/application\.properties
