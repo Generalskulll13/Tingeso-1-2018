@@ -23,8 +23,9 @@ apply plugin: "jacoco"
 apply plugin: 'war'
 
 group = 'com.example'
-version = '0.0.1-SNAPSHOT'
+version = 'web'
 sourceCompatibility = 1.8
+
 
 repositories {
 	mavenCentral()
