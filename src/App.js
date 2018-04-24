@@ -45,7 +45,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img className="logo-cart" src={logo} alt="logo" />
-          <h1 0className="App-title">Bienvenido a la tienda virtual </h1>
+          <h1 className="App-title">Bienvenido a la tienda virtual </h1>
           <button className="button-crear" onClick={this.toggleModal}> Nuevo ingreso </button>
           <ModalIngreso className="Modal"  show={this.state.isOpen} onClose={this.toggleModal} > </ModalIngreso>
         </header>
